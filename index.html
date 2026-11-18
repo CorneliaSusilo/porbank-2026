@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#020617" />
+  <title>PORBANK 2026</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body { min-height: 100vh; display: grid; place-items: center; padding: 16px; background: #020617; font-family: Inter, Arial, sans-serif; }
+    .page { position: relative; width: min(430px, 100%); aspect-ratio: 9 / 16; max-height: 92vh; overflow: hidden; border-radius: 32px; color: white; background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=85') center/cover; box-shadow: 0 25px 60px rgba(0,0,0,.5); }
+    .page::before { content: ''; position: absolute; inset: 0; background: rgba(2,6,23,.65); }
+    .page::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top, rgba(59,130,246,.35), transparent 48%); }
+    .content { position: relative; z-index: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px; animation: enter .7s ease-out; }
+    .logo { height: 160px; width: auto; margin-bottom: 32px; overflow: visible; filter: drop-shadow(0 18px 22px rgba(0,0,0,.35)); transition: transform .45s ease; }
+    h1 { margin: 0 0 20px; font-size: clamp(36px, 10vw, 48px); line-height: 1.05; letter-spacing: -.03em; text-shadow: 0 4px 14px rgba(0,0,0,.55); }
+    p { margin: 0 0 36px; max-width: 300px; color: #e2e8f0; line-height: 1.5; }
+    button { height: 56px; padding: 0 40px; border: 0; border-radius: 999px; color: white; background: #3b82f6; font-size: 16px; font-weight: 800; letter-spacing: .2em; cursor: pointer; box-shadow: 0 12px 28px rgba(15,23,42,.5); transition: transform .2s, background .2s; }
+    button:hover { transform: scale(1.05); background: #60a5fa; } button:active { transform: scale(.95); } .play { margin-right: 8px; }
+    .started .logo { transform: scale(1.08); } .started p, .started button { display: none; }
+    @keyframes enter { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+    @media (max-height: 700px) { .logo { height: 125px; margin-bottom: 22px; } h1 { font-size: 34px; } p { margin-bottom: 24px; } }
+  </style>
+</head>
+<body>
+  <main class="page" id="page">
+    <section class="content">
+      <svg class="logo" viewBox="0 0 447 512" role="img" aria-label="PORBANK 2026 logo">
+<polygon points="381,347 381,419 444,383" fill="#1247ce"/><polygon points="296,221 335,291 361,221" fill="#1247ce"/><polygon points="429,35 330,125 395,125" fill="#1247ce"/>
+<polygon points="225,510 225,438 161,473" fill="#bf1845"/><polygon points="268,293 236,383 300,384" fill="#bf1845"/>
+<polygon points="110,220 84,292 147,292" fill="#83db49"/><polygon points="208,128 140,128 174,218 204,135" fill="#83db49"/><polygon points="62,93 3,129 63,164" fill="#83db49"/><polygon points="226,73 315,126 338,66 285,36" fill="#83db49"/>
+<polygon points="329,127 326,139 296,219 362,218 361,219 359,216" fill="#28defe"/><polygon points="417,111 394,171 445,203 445,129" fill="#28defe"/><polygon points="429,33 364,34 330,124" fill="#28defe"/>
+<polygon points="83,295 50,388 114,389" fill="#eec402"/><polygon points="64,166 60,170 2,205 2,309 51,338 64,302" fill="#eec402"/>
+<polygon points="208,129 176,217 240,217" fill="#05b96f"/><polygon points="224,73 223,1 159,37" fill="#05b96f"/>
+<polygon points="139,130 110,218 172,218" fill="#167b35"/><polygon points="224,74 160,38 157,38 65,91 65,165" fill="#167b35"/>
+<polygon points="295,222 269,291 334,291" fill="#01bdf2"/><polygon points="394,172 381,209 382,346 445,382 445,204" fill="#01bdf2"/><polygon points="394,127 330,127 361,218" fill="#01bdf2"/>
+<polygon points="2,310 1,380 28,398 50,338" fill="#f36213"/>
+<polygon points="380,348 227,436 290,471 295,470 380,420" fill="#99207d"/><polygon points="335,292 269,293 301,383" fill="#99207d"/>
+<polygon points="49,390 18,479 81,479" fill="#e11332"/><polygon points="109,446 160,473 225,437 131,380" fill="#e11332"/><polygon points="240,219 176,219 202,290" fill="#e11332"/>
+<polygon points="226,509 290,472 226,437" fill="#d7117b"/><polygon points="241,219 203,291 266,291" fill="#d7117b"/>
+<polygon points="147,293 83,294 114,386 116,384" fill="#f1e504"/><polygon points="3,130 2,204 63,167 63,165" fill="#f1e504"/>
+<polygon points="110,219 148,291 173,217 172,219" fill="#38c853"/><polygon points="224,0 225,73 232,67 284,36" fill="#38c853"/>
+<polygon points="50,390 79,472 82,476 113,390" fill="#ea4d01"/><polygon points="203,292 236,382 258,315 267,293" fill="#f60676"/>
+</svg>
+      <h1>WELCOME TO PORBANK 2026</h1>
+      <p>Click the button below to begin your experience.</p>
+      <button id="start" type="button" aria-label="Start PORBANK 2026"><span class="play">▶</span>START</button>
+    </section>
+  </main>
+  <script>
+    document.getElementById('start').addEventListener('click', function () { document.getElementById('page').classList.add('started'); });
+  </script>
+</body>
+</html>
